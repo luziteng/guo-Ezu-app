@@ -19,7 +19,7 @@ Component({
                     } else {
                         if (newVal && newVal.mode !== 'same') {
                             this.triggerEvent('getImage', {
-                                errMsg: 'canvasdrawer:samme params'
+                                msg: 'canvasdrawer:samme params'
                             })
                         }
                     }
@@ -115,7 +115,7 @@ Component({
                             content: '当前微信版本过低，无法使用 measureText 功能，请升级到最新微信版本后重试。'
                         })
                         this.triggerEvent('getImage', {
-                            errMsg: 'canvasdrawer:version too low'
+                            msg: 'canvasdrawer:version too low'
                         })
                         return
                     } else {
@@ -275,13 +275,13 @@ Component({
                         wx.getImageInfo({
                             src: url,
                             complete: res => {
-                                // console.log(res.errMsg);
-                                if (res.errMsg === 'getImageInfo:ok') {
+                                // console.log(res.msg);
+                                if (res.msg === 'getImageInfo:ok') {
                                     this.cache[url] = res.path
                                     resolve(res.path)
                                 } else {
                                     this.triggerEvent('getImage', {
-                                        errMsg: 'canvasdrawer:download fail'
+                                        msg: 'canvasdrawer:download fail'
                                     })
                                     reject(new Error('getImageInfo fail'))
                                 }
@@ -307,7 +307,7 @@ Component({
                 height,
                 canvasId: 'canvasdrawer',
                 complete: res => {
-                    if (res.errMsg === 'canvasToTempFilePath:ok') {
+                    if (res.msg === 'canvasToTempFilePath:ok') {
                         this.setData({
                             showCanvas: false,
                             isPainting: false,
@@ -315,11 +315,11 @@ Component({
                         })
                         this.triggerEvent('getImage', {
                             tempFilePath: res.tempFilePath,
-                            errMsg: 'canvasdrawer:ok'
+                            msg: 'canvasdrawer:ok'
                         })
                     } else {
                         this.triggerEvent('getImage', {
-                            errMsg: 'canvasdrawer:fail'
+                            msg: 'canvasdrawer:fail'
                         })
                     }
                 }
