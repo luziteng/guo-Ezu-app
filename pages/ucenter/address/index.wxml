@@ -6,13 +6,14 @@
                 <image wx:else class="img" src="/images/icon/gou-gray.png"></image>
             </view>
             <view class="info-wrap">
-                <view class="addr">
-                    <view class="top">{{item.address}}</view>
-                    <view class="text">{{item.full_region}}</view>
-                </view>
+    
                 <view class="name">
-                    <view class="text">{{item.name}} {{item.mobile}}</view>
-                    <view class="default" wx:if="{{item.is_default}}">默认</view>
+                    <view class="text">{{item.receiverName}} {{item.receiverPhone}}</view>
+                    <view class="default" wx:if="{{item.isDefaultAddress}}">默认</view>
+                </view>
+                <view class="addr">
+                    <view class="text">{{item.receiverProvince}}{{item.receiverCity}}{{item.receiverDistrict}}{{item.receiverAddress}}</view>
+                    <!-- <view >{{item.receiverAddress}}</view> -->
                 </view>
             </view>
             <view class="edit-wrap" data-addressid="{{item.id}}" catchtap='goAddressDetail'>

@@ -75,7 +75,7 @@
         </view>
     </view>
     <view class="li-wrap">
-        <view class="list" bindtap="toFootprint">
+        <!-- <view class="list" bindtap="toFootprint">
             <view class="list-l">
                 <view class="icon">
                     <image class="img" src="/images/icon/icon-footprint-r.png"></image>
@@ -92,22 +92,21 @@
                 <view class="text">联系客服</view>
             </view>
             <view class="arrow"></view>
-        </button>
-        <view class="list" bindtap="toAbout">
-            <view class="list-l">
+        </button> -->
+        <view class="list" >
+            <!-- <view class="list-l">
                 <view class="icon">
                     <image class="img" src="/images/icon/icon-about-r.png"></image>
                 </view>
                 <view class="text">关于我们</view>
             </view>
-            <view class="arrow"></view>
+            <view class="arrow"></view>  -->
         </view>
     </view>
     <view class="company">
         <view class="c-wrap" bindtap="getOrderInfo">
-            <view class="text">海风小店</view>
+            <view class="text">果E族</view>
             <view class="line"></view>
         </view>
-        <view class="tip">开源微信小程序商城</view>
     </view>
 </view>

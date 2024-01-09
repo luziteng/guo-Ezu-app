@@ -33,7 +33,7 @@ Page({
                 status: true
             });
         }).catch(res => {
-            util.showErrorToast(res.errmsg);
+            util.showErrorToast(res.msg);
         });
     }
 })

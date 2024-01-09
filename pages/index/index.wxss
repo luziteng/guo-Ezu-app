@@ -238,7 +238,7 @@
 }
 
 .list-wrap .new-box {
-    width: 210rpx;
+    width: 320rpx;
     /* height: 330rpx; */
     float: left;
     margin: 0 30rpx 20rpx 0;
@@ -248,8 +248,8 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 210rpx;
-    height: 210rpx;
+    width: 410rpx;
+    height: 410rpx;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -280,15 +280,15 @@
 }
 
 .new-box .navi-url .image {
-    width: 210rpx;
-    height: 210rpx;
+    width: 320rpx;
+    height: 320rpx;
     border-radius: 8rpx;
     background: #f9f9f9;
 }
 
 .new-box .navi-url .box {
-    height: 210rpx;
-    width: 210rpx;
+    height: 320rpx;
+    width: 320rpx;
     position: relative;
     margin-bottom: 10rpx;
     border-radius: 4rpx;

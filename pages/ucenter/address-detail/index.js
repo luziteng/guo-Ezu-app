@@ -10,11 +10,12 @@ Page({
             city_id: 0,
             district_id: 0,
             address: '',
-            full_region: '',
+            full_region: undefined,
             name: '',
             mobile: '',
             is_default: 0
         },
+        region:undefined,
         addressId: 0,
         openSelectRegion: false,
         selectRegionList: [{
@@ -102,7 +103,7 @@ Page({
                             util.showErrorToast('删除成功');
                             wx.navigateBack();
                         } else {
-                            util.showErrorToast(res.errmsg);
+                            util.showErrorToast(res.msg);
                         }
                     });
                 }
@@ -318,6 +319,7 @@ Page({
     },
     saveAddress() {
         let address = this.data.address;
+        let region = this.data.region
         if (address.name == '' || address.name == undefined) {
             util.showErrorToast('请输入姓名');
             return false;
@@ -326,30 +328,38 @@ Page({
             util.showErrorToast('请输入手机号码');
             return false;
         }
-        if (address.district_id == 0 || address.district_id == undefined) {
+        if (region[0]  == undefined) {
             util.showErrorToast('请输入省市区');
             return false;
         }
-        if (address.address == '' || address.address == undefined) {
+        if ( address.address == undefined ||address.address == '') {
             util.showErrorToast('请输入详细地址');
             return false;
         }
         let that = this;
+        let userInfo = wx.getStorageSync('userInfo');
+        let userId = userInfo.id;
         util.request(api.SaveAddress, {
-            id: address.id,
-            name: address.name,
-            mobile: address.mobile,
-            province_id: address.province_id,
-            city_id: address.city_id,
-            district_id: address.district_id,
-            address: address.address,
-            is_default: address.is_default,
-        }, 'POST').then(function(res) {
-            if (res.errno === 0) {
+            userId: userId,
+            receiverName: address.name,
+            receiverPhone: address.mobile,
+            receiverProvince: region[0],
+            receiverCity: region[1],
+            receiverDistrict: region[2],
+            receiverAddress: address.address,
+        }, 'post').then(function(res) {
+            if (res.code === 200) {
                 wx.navigateBack()
             }
         });
+        
     },
+    bindRegionChange: function (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        this.setData({
+          region: e.detail.value
+        })
+      },
     onShow: function() {
         let id = this.data.addressId;
         if (id > 0) {

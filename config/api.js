@@ -1,37 +1,39 @@
-const ApiRoot = 'http://localhost:8361';
+const ApiRoot = 'http://guoezu.cn:8000';
 // const ApiRoot = 'http://192.168.0.113:8361';
 // const ApiRoot = 'https://www.qile.club:8688';
-const ApiRootUrl = ApiRoot + '/api/'
+const ApiRootUrl = ApiRoot 
 
-module.exports = {
+module.exports = {  
   ApiRoot: ApiRoot,
   // 登录
-  AuthLoginByWeixin: ApiRootUrl + 'auth/loginByWeixin', //微信登录
+  AuthLoginByWeixin: ApiRootUrl + '/user/login', //微信登录
   // 首页
-  IndexUrl: ApiRootUrl + 'index/appInfo', //首页数据接口
+  IndexUrl: ApiRootUrl + '/product/selectList', //首页数据接口
   // 分类
-  CatalogList: ApiRootUrl + 'catalog/index', //分类目录全部分类数据接口
+  CatalogList: ApiRootUrl + '/catalog/index', //分类目录全部分类数据接口
   CatalogCurrent: ApiRootUrl + 'catalog/current', //分类目录当前分类数据接口
   GetCurrentList: ApiRootUrl + 'catalog/currentlist',
   // 购物车
-  CartAdd: ApiRootUrl + 'cart/add', // 添加商品到购物车
+  CartAdd: ApiRootUrl + '/cart/insert', // 添加商品到购物车
+  
   CartList: ApiRootUrl + 'cart/index', //获取购物车的数据
   CartUpdate: ApiRootUrl + 'cart/update', // 更新购物车的商品
   CartDelete: ApiRootUrl + 'cart/delete', // 删除购物车的商品
   CartChecked: ApiRootUrl + 'cart/checked', // 选择或取消选择商品
-  CartGoodsCount: ApiRootUrl + 'cart/goodsCount', // 获取购物车商品件数
+  CartGoodsCount: ApiRootUrl + '/cart/selectList', // 获取购物车商品件数
+  CarGoodsInit:ApiRootUrl + '/cart/calculatePrice', // 计算总额
   CartCheckout: ApiRootUrl + 'cart/checkout', // 下单前信息确认
   // 商品
   GoodsCount: ApiRootUrl + 'goods/count', //统计商品总数
-  GoodsDetail: ApiRootUrl + 'goods/detail', //获得商品的详情
+  GoodsDetail: ApiRootUrl + '/product/selectInfo', //获得商品的详情
   GoodsList: ApiRootUrl + 'goods/list', //获得商品列表
   GoodsShare: ApiRootUrl + 'goods/goodsShare', //获得商品的详情
   SaveUserId: ApiRootUrl + 'goods/saveUserId',
   // 收货地址
   AddressDetail: ApiRootUrl + 'address/addressDetail', //收货地址详情
   DeleteAddress: ApiRootUrl + 'address/deleteAddress', //保存收货地址
-  SaveAddress: ApiRootUrl + 'address/saveAddress', //保存收货地址
-  GetAddresses: ApiRootUrl + 'address/getAddresses',
+  SaveAddress: ApiRootUrl + '/receiver/insert', //保存收货地址
+  GetAddresses: ApiRootUrl + '/receiver/selectList',
   RegionList: ApiRootUrl + 'region/list', //获取区域列表
   PayPrepayId: ApiRootUrl + 'pay/preWeixinPay', //获取微信统一下单prepay_id
   OrderSubmit: ApiRootUrl + 'order/submit', // 提交订单

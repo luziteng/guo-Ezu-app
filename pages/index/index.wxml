@@ -5,18 +5,21 @@
             <view class='text'>客服</view>
         </button>
     </view>
-    <view class="search" bindtap="goSearch">
+    <!-- <view class="search" bindtap="goSearch">
         <image class="icon" src="/images/icon/search.png"></image>
         <text class="txt">搜索,发现更多好物</text>
-    </view>
-    <view class='banner-wrap' wx:if="{{show_banner && banner.length > 0}}">
+    </view> -->
+    <view class='banner-wrap' wx:if="{{ banner.length > 0}}">
         <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
             <swiper-item wx:for="{{banner}}" wx:key="id">
-                <navigator wx:if="{{item.link_type == 0}}" url="/pages/goods/goods?id={{item.goods_id}}">
+                <!-- <navigator wx:if="{{item.link_type == 0}}" url="/pages/goods/goods?id={{item.goods_id}}">
                     <image src="{{item.image_url}}" background-size="cover"></image>
                 </navigator>
                 <navigator wx:elif="{{item.link_type == 1}}" url="{{item.link}}">
                     <image src="{{item.image_url}}" background-size="cover"></image>
+                </navigator> -->
+                <navigator>
+                    <image src="{{item}}" background-size="cover"></image>
                 </navigator>
             </swiper-item>
         </swiper>
@@ -56,24 +59,24 @@
         </swiper-item>
     </swiper>
     <view class="goods-container">
-        <view class='topic-container' wx:for="{{floorGoods}}" wx:key="id">
-            <view class='banner-container' bindtap="goCategory" data-cateid="{{item.id}}" wx:if="{{index_banner_img == 1}}">
+        <view class='topic-container'>
+            <!-- <view class='banner-container' bindtap="goCategory" data-cateid="{{item.id}}" wx:if="{{index_banner_img == 1}}">
                 <image mode='aspectFill' style="width:100%;height:{{item.height}}rpx" src='{{item.banner}}'>
                 </image>
                 <view class="bg" style="height:{{item.height}}rpx;line-height:{{item.height}}rpx;"></view>
                 <view class="text" style="height:{{item.height}}rpx;line-height:{{item.height}}rpx;">{{item.name}}</view>
-            </view>
-            <view wx:else class="category-title" data-cateid="{{item.id}}" bindtap="goCategory">
+            </view> -->
+            <!-- <view wx:else class="category-title" data-cateid="{{item.id}}" bindtap="goCategory">
                 <view class="title">
                     <view class="text">{{item.name}}</view>
                     <view class="line"></view>
                 </view>
-            </view>
+            </view> -->
             <view class='list-wrap clearfix'>
-                <view class="new-box {{(iindex+1)%3 == 0?'no-margin':''}}" wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="id">
-                    <navigator hover-class='none' class='navi-url' url="/pages/goods/goods?id={{iitem.id}}">
+                <view class="new-box {{(index+1)%2 == 0?'no-margin':''}}" wx:for="{{floorGoods}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+                    <navigator hover-class='none' class='navi-url' url="/pages/goods/goods?id={{item.id}}">
                         <view class="box">
-                            <image src="{{iitem.list_pic_url}}" class="image">
+                            <image src="{{item.productPicture[0]}}" class="image">
                                 <view wx:if="{{iitem.is_new == 1}}" class='new-tag'>新品</view>
                             </image>
                             <block wx:if="{{iitem.goods_number <= 0}}">
@@ -83,17 +86,17 @@
                             </block>
                         </view>
                         <view class="goods-info {{iitem.goods_number <= 0?'fast-out-status':''}}">
-                            <view class="goods-title">{{iitem.name}}</view>
+                            <view class="goods-title">{{item.productName}}</view>
                             <view class='price-container'>
                                 <view class='l'>
-                                    <view class='h'>￥{{iitem.min_retail_price}}</view>
+                                    <view class='h'>￥{{item.minimumPrice}}起</view>
                                 </view>
                             </view>
                         </view>
                     </navigator>
                 </view>
             </view>
-            <view class="more-category" data-cateid="{{item.id}}" bindtap="goCategory">点击查看更多{{item.name}}</view>
+            <!-- <view class="more-category" data-cateid="{{item.id}}" bindtap="goCategory">点击查看更多{{item.name}}</view> -->
         </view>
     </view>
     <!-- <ad unit-id="adunit-b6fcdb43b7913591"></ad> -->

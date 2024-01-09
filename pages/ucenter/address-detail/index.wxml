@@ -20,9 +20,20 @@
             <view class="icon">
                 <image class="img" src="/images/icon/position.png"></image>
             </view>
-            <view class="input-wrap" bindtap="chooseRegion">
+            <!-- <view class="input-wrap" bindtap="chooseRegion">
                 <input cursor-spacing='100' class="a-input" value="{{address.full_region}}" disabled="true" placeholder="选择省份、城市、区县" />
                 <view class="arrow"></view>
+            </view> -->
+            <!-- <view class="section__title">省市区选择器</view> -->
+            <view class="input-wrap">
+                <picker  mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                    <view class="picker" wx:if='{{region}}'>
+                    {{region[0]}}, {{region[1]}} , {{region[2]  }}
+                    </view>
+                    <view  class="section__title" wx:else>
+                        选择省份、城市、区县 
+                    </view>
+                </picker>
             </view>
         </view>
         <view class="a-item">
@@ -37,10 +48,10 @@
             <view class="default-input {{address.is_default == 1 ? 'checked' : 'unchecked'}}" bindtap="bindIsDefault" >点击设为默认地址</view>
         </view> -->
     </view>
-    <view class="default-wrap">
+    <!-- <view class="default-wrap">
         <view class="text">设为默认地址</view>
         <switch class="switch" checked="{{address.is_default}}" bindchange="switchChange"></switch>
-    </view>
+    </view> -->
     <view class='btn-wrap' bindtap="saveAddress">
         <view class="btn active}}">保存</view>
     </view>

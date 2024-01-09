@@ -38,7 +38,7 @@ Page({
             that.getOrderList();
             that.getOrderInfo();
         }).catch(res => {
-            util.showErrorToast(res.errmsg);
+            util.showErrorToast(res.msg);
         });
     },
     getOrderInfo: function(e) {
@@ -139,7 +139,7 @@ Page({
                             });
                             that.getOrderList();
                         } else {
-                            util.showErrorToast(res.errmsg);
+                            util.showErrorToast(res.msg);
                         }
                     });
                 }

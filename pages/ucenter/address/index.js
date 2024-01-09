@@ -16,8 +16,8 @@ Page({
     },
     getAddresses() {
         let that = this;
-        util.request(api.GetAddresses).then(function(res) {
-            if (res.errno === 0) {
+        util.request(api.GetAddresses,undefined,'post').then(function(res) {
+            if (res.code === 200) {
                 that.setData({
                     addresses: res.data
                 })
@@ -25,6 +25,7 @@ Page({
         });
     },
     selectAddress:function(e) {
+        console.log(' e.currentTarget.dataset.addressid', e.currentTarget.dataset.addressid)
         let addressId = e.currentTarget.dataset.addressid
         wx.setStorageSync('addressId', addressId);
         wx.navigateBack();

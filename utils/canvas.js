@@ -172,7 +172,7 @@ class Wxml2Canvas {
                 },
                 fail: function (res) {
 
-                    self.errorHandler({errcode: 1000, errmsg: 'save canvas error', e: res});
+                    self.errorHandler({errcode: 1000, msg: 'save canvas error', e: res});
                 }
             }
 
@@ -258,7 +258,7 @@ class Wxml2Canvas {
                                 })
                             },
                             fail: (res) => {
-                                reject({errcode: 1001, errmsg: 'download pic error'});
+                                reject({errcode: 1001, msg: 'download pic error'});
                             }
                         })
                     }
@@ -337,7 +337,7 @@ class Wxml2Canvas {
                 }
             }
         } catch (e) {
-            reject && reject({ errcode: (isImage ? 1003 : 1002), errmsg: (isImage ? 'drawImage error' : 'drawRect error'), e });
+            reject && reject({ errcode: (isImage ? 1003 : 1002), msg: (isImage ? 'drawImage error' : 'drawRect error'), e });
         }
     }
 
@@ -617,7 +617,7 @@ class Wxml2Canvas {
                 }
             }
         } catch(e) {
-            reject && reject({ errcode: 1004, errmsg: 'drawText error', e: e });
+            reject && reject({ errcode: 1004, msg: 'drawText error', e: e });
         }
     }
 
@@ -665,7 +665,7 @@ class Wxml2Canvas {
             this._updateProgress(item.progress);
             resolve && resolve();
         } catch (e) {
-            reject && reject({ errcode: (isImage ? 1006 : 1005), errmsg: (isImage ? 'drawCircleImage error' : 'drawCircle error'), e });
+            reject && reject({ errcode: (isImage ? 1006 : 1005), msg: (isImage ? 'drawCircleImage error' : 'drawCircle error'), e });
         }
     }
 
@@ -725,7 +725,7 @@ class Wxml2Canvas {
             this._updateProgress(item.progress);
             resolve && resolve();
         } catch (e) {
-            reject && reject({ errcode: 1007, errmsg: 'drawLine error', e });
+            reject && reject({ errcode: 1007, msg: 'drawLine error', e });
         }
     }
 
@@ -770,7 +770,7 @@ class Wxml2Canvas {
             this._updateProgress(item.progress);
             resolve && resolve();
         } catch (e) {
-            reject && reject({ errcode: 1012, errmsg: 'drawRect error', e });
+            reject && reject({ errcode: 1012, msg: 'drawRect error', e });
         }
     }
 
@@ -815,7 +815,7 @@ class Wxml2Canvas {
                 });
             });
         } catch (e) {
-            reject && reject({ errcode: 1008, errmsg: 'drawWxml error' });
+            reject && reject({ errcode: 1008, msg: 'drawWxml error' });
         }
     }
 
@@ -1069,7 +1069,7 @@ class Wxml2Canvas {
                     self._preloadImage(list).then(result => {
                         resolve(res);
                     }).catch((res) => {
-                        reject && reject({ errcode: 1009, errmsg: 'drawWxml preLoadImage error' });
+                        reject && reject({ errcode: 1009, msg: 'drawWxml preLoadImage error' });
                     });
                 }
             }).exec();

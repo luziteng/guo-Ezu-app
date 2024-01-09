@@ -243,3 +243,15 @@ page {
     color: #5d6777;
     text-align: center;
 }
+.section__title{
+    font-size: 28rpx;
+    color:#999;
+    cursor: auto;
+    display: block;
+    font-family: UICTFontTextStyleBody;
+    height: 1.4rem;
+    min-height: 1.4rem;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+}

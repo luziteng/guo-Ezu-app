@@ -62,8 +62,15 @@ Page({
         });
     },
     onLoad: function (options) {
+        console.log(options,'options')
         let addType = options.addtype;
         let orderFrom = options.orderFrom;
+        this.setData({
+            goodsCount:options.number,
+            goodsTotalPrice:options.totalActualPrice,
+            actualPrice:options.totalPrice,
+            orderTotalPrice:options.totalPrice
+        })
         if (addType != undefined) {
             this.setData({
                 addType: addType
@@ -90,7 +97,7 @@ Page({
                 'addressId': addressId
             });
         } catch (e) {}
-        this.getCheckoutInfo();
+        // this.getCheckoutInfo();
     },
     onPullDownRefresh: function () {
         wx.showNavigationBarLoading()
@@ -105,7 +112,7 @@ Page({
         } catch (e) {
             // Do something when catch error
         }
-        this.getCheckoutInfo();
+        // this.getCheckoutInfo();
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
     },
@@ -181,7 +188,7 @@ Page({
                     });
                 });
             } else {
-                util.showErrorToast(res.errmsg);
+                util.showErrorToast(res.msg);
             }
             wx.hideLoading()
         });
@@ -209,7 +216,7 @@ Page({
                     url: '/pages/payOffline/index?status=1',
                 })
             } else {
-                util.showErrorToast(res.errmsg);
+                util.showErrorToast(res.msg);
                 wx.redirectTo({
                     url: '/pages/payOffline/index?status=0',
                 })

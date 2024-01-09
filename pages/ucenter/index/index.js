@@ -59,7 +59,7 @@ Page({
   //     url: '/pages/app-auth/index',
   //   });
   // },
-  goAuth() {
+  goAuth:function (e) {
     let code = '';
     let that = this;
     wx.login({

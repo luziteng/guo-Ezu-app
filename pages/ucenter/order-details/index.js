@@ -63,7 +63,7 @@ Page({
         pay.payOrder(parseInt(that.data.orderId)).then(res => {
             that.getOrderDetail();
         }).catch(res => {
-            util.showErrorToast(res.errmsg);
+            util.showErrorToast(res.msg);
         });
     },
     toSelectAddress: function () {
@@ -175,7 +175,7 @@ Page({
             if (res.errno === 0) {
                 that.getOrderDetail();
             } else {
-                util.showErrorToast(res.errmsg);
+                util.showErrorToast(res.msg);
             }
         });
     },
@@ -198,7 +198,7 @@ Page({
                             wx.setStorageSync('doRefresh', 1);
                             wx.navigateBack();
                         } else {
-                            util.showErrorToast(res.errmsg);
+                            util.showErrorToast(res.msg);
                         }
                     });
                 }
@@ -223,7 +223,7 @@ Page({
                             wx.setStorageSync('doRefresh', 1);
                             that.getOrderDetail();
                         } else {
-                            util.showErrorToast(res.errmsg);
+                            util.showErrorToast(res.msg);
                         }
                     });
                 }
@@ -257,7 +257,7 @@ Page({
                             clearInterval(orderTimerID);
                             that.getOrderDetail();
                         } else {
-                            util.showErrorToast(res.errmsg);
+                            util.showErrorToast(res.msg);
                         }
                     });
                 }

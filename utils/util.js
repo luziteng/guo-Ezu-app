@@ -74,7 +74,8 @@ function request(url, data = {}, method = "GET") {
             method: method,
             header: {
                 'Content-Type': 'application/json',
-                'X-Hioshop-Token': wx.getStorageSync('token')
+                'X-Hioshop-Token': wx.getStorageSync('token'),
+                'guoezu':wx.getStorageSync('token')?wx.getStorageSync('token'):''
             },
             success: function(res) {
                 if (res.statusCode == 200) {
@@ -110,7 +111,7 @@ function request(url, data = {}, method = "GET") {
                         resolve(res.data);
                     }
                 } else {
-                    reject(res.errMsg);
+                    reject(res.msg);
                 }
 
             },

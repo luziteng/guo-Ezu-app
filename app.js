@@ -14,12 +14,14 @@ App({
     // 登录
     wx.login({
       success: (res) => {
+        //   console.log('codecdoecode',res.code)
         util.request(api.AuthLoginByWeixin, {
           code: res.code
         }, 'POST').then(function (res) {
-          if (res.errno === 0) {
-            let userInfo = res.data.userInfo;
-            wx.setStorageSync('token', res.data.token);
+          if (res.code === 200) {
+            let userInfo = res.data;
+            console.log('res.data',res.data)
+            wx.setStorageSync('token', res.data.tokenValue);
             wx.setStorageSync('userInfo', userInfo);
           }
         });

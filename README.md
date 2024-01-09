@@ -1,10 +1,10 @@
-### 海风小店，开源商城（微信小程序端）
+### 果E族，开源商城（微信小程序端）
 
 + 基于开源项目NideShop重建，精简了一些功能的同时完善了一些功能，并重新设计了UI
 + 测试数据来自上述开源项目
 + 服务端api基于Ｎode.js+ThinkJS+MySQL
 
-### 基于海风小店开发上线的小程序
+### 基于果E族开发上线的小程序
 <img width="200" src="https://raw.githubusercontent.com/iamdarcy/hiolabs/master/git-images/mwyx.jpg">
 
 ### 服务器和后台管理本地部署教程
@@ -90,9 +90,9 @@ A 增加发货时的订阅消息
 服务端： https://github.com/iamdarcy/hioshop-server  
 
 - 我的微信号是lookgxl，加群时回答这个问题即可入群。  
-海风小店小程序商城1群 824781955（已满）  
-海风小店小程序商城2群 932101372（已满）  
-海风小店小程序商城3群 1130172339（已满）  
-海风小店小程序商城4群 652317079    
+果E族小程序商城1群 824781955（已满）  
+果E族小程序商城2群 932101372（已满）  
+果E族小程序商城3群 1130172339（已满）  
+果E族小程序商城4群 652317079    
 <img width="500" src="https://raw.githubusercontent.com/iamdarcy/hiolabs/master/git-images/contact.jpg"/>
 

@@ -185,9 +185,9 @@ Page({
         wx.hideLoading()
         const {
             tempFilePath,
-            errMsg
+            msg
         } = event.detail
-        if (errMsg === 'canvasdrawer:ok') {
+        if (msg === 'canvasdrawer:ok') {
             this.setData({
                 shareImage: tempFilePath
             })
